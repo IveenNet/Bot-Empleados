@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	
+	<category>
+        <pattern>GENERAR DATOS</pattern>
+        <template>
+            <learn>
+                <category>
+                    <pattern>DATOS DE <eval><get name="empleado_nombre" /></eval> <eval><get name="empleado_apellidos" /></eval></pattern>
+                    <template>
+                        Nombre: <eval><get name="empleado_nombre" /></eval> <eval><get name="empleado_apellidos" /></eval>.<br/>
+                        Edad: <eval><get name="empleado_edad" /></eval> años.<br/>
+                        Tecnologías utilizadas recientemente: <eval><get name="empleado_tecnologias" /></eval>.
+                    </template>
+                </category>
+            </learn>
+            Empleado <get name="empleado_nombre" /> <get name="empleado_apellidos" /> ha sido registrado con éxito
+            <think>
+                <set name="registration_step"></set>
+            </think>
+        </template>
+    </category>
+	
+	<category>
+        <pattern>DATOS DE *</pattern>
+        <template>
+            No tengo registrada la información del empleado <star />. ¿Quieres añadirlo?
+        </template>
+    </category>
+	
+	<category>
+        <pattern>*SÍ*</pattern>
+        <that>No tengo registrada la información del empleado *</that>
+        <template>
+            <srai>REGISTRAR EMPLEADO</srai>
+        </template>
+    </category>
+    
+    <!-- Manejar Respuesta No -->
+    <category>
+        <pattern>*NO*</pattern>
+        <that>No tengo registrada la información del empleado *</that>
+        <template>De acuerdo</template>
+    </category>
+    
+    <!--Cancelación -->
+    <category>
+        <pattern>CANCELAR</pattern>
+        <template>
+            Registro de empleado cancelado.
+            <think>
+                <set name="registration_step"></set>
+            </think>
+            <srai>HOLA</srai>
+        </template>
+    </category>
+	
+</aiml>

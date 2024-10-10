@@ -1,6 +1,23 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-
-
-
+    
+    <category>
+        <pattern>HOLA</pattern>
+        <template>
+            <card>
+                <image>https://www.inteldig.com/wp-content/uploads/2020/01/317112-P94EHN-249-1024x689.jpg</image>
+                <title><bot name="title"></bot></title>
+                <subtitle>¿Qué deseas hacer? 😊</subtitle>
+                <button>
+                    <text>REGISTRAR EMPLEADO</text>
+                    <postback>REGISTRAR EMPLEADO</postback>
+                </button>
+                <button>
+                    <text>BUSCAR EMPLEADO</text>
+                    <postback>BUSCAR EMPLEADO</postback>
+                </button>
+            </card>
+        </template>
+    </category>
+    
 </aiml>

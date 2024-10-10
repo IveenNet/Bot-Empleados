@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!-- Buscar Empleado -->
+    <category>
+        <pattern>BUSCAR EMPLEADO</pattern>
+        <template>Indiqueme su nombre y sus apellidos</template>
+    </category>
+    
+    <category>
+        <pattern>* *</pattern>
+        <that>BUSCAR EMPLEADO</that>
+        <template>
+            <srai>DATOS DE <star/></srai>
+        </template>
+    </category>
+
+</aiml>
